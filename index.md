@@ -17,9 +17,9 @@ title: More Version Control with Git
 ## Topics
 
 1.  [Typing less](01-alias.html)
+2.  [Bisect](02-bisect.html)
 <!-- FIXME Write
 
-2.  [Bisect](02-bisect.html)
 3.  [Branches](03-branches.html)
 4.  [Pull Request](04-pr.html)
 5.  [Rebase](05-rebase.html)
