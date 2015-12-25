@@ -8,27 +8,8 @@ minutes: 10
 >
 > * Understand how bisect works.
 
-We are going to use [this repository](https://github.com/rgaiacs/swc-git-intermediate-bisect)
-to play with Git's `bisect` command.
-First clone the repository on your machine:
+Let explore the repository:
 
-~~~ {.git}
-$ git clone https://github.com/rgaiacs/swc-git-intermediate-bisect.git
-~~~
-~~~ {.output}
-Cloning into 'swc-git-intermediate-bisect'...
-remote: Counting objects: 33, done.
-remote: Compressing objects: 100% (14/14), done.
-remote: Total 33 (delta 8), reused 33 (delta 8), pack-reused 0
-Unpacking objects: 100% (33/33), done.
-Checking connectivity... done.
-~~~
-
-And explore the repository:
-
-~~~ {.shell}
-$ cd swc-git-intermediate-bisect
-~~~
 ~~~ {.shell}
 $ ls
 ~~~

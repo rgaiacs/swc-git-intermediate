@@ -10,9 +10,12 @@ minutes: 10
 
 When we start using Git a lot we also get tired of type long commands like
 `git log --all --decorate --graph --oneline`.
-Git allows us to create our own commands that will be transcript to full Git
+Git allows us to create our own commands,
+called `alias`,
+that will be transcript to full Git
 commands so we can type less.
-We can create a command called `lga` to be transcript into
+For example,
+we can create a command called `lga` to be transcript into
 `log --all --decorate --graph --oneline`
 using
 
@@ -20,27 +23,53 @@ using
 $ git config --global alias.lga 'log --all --decorate --graph --oneline'
 ~~~
 
+> ## Config {.callout}
+>
+> We used `git config`
+> at [Software Carpentry's Novice Git lesson](https://swcarpentry.github.io/git-novice/).
+> to set up `user.name`, `user.email` and `core.editor`.
+
 After we create the `lga` command we can use it as any other Git command, i.e.
 we just need to run
 
 ~~~ {.git}
 $ git lga
 ~~~
-
-<!-- FIXME Add output -->
+~~~ {.out}
+* 3f3c1bf (HEAD -> master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   
+| * 51bd45c Add words
+| * ee87332 Add words
+* | 87db327 Add words
+|/  
+* cde9009 Add Python \o/
+* 23c6a6b Add words
+* 6318870 Begin
+~~~
 
 And we can pass arguments to `lga`. For example,
 
 ~~~ {.git}
-$ git lga -10
+$ git lga -5
 ~~~
-
-<!-- FIXME Add output -->
-
-> ## Callout Box {.callout}
->
-> An aside of some kind.
-
+~~~ {.out}
+* 3f3c1bf (HEAD -> master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   
+~~~
 
 > ## More Alias {.challenge}
 >

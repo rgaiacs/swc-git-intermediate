@@ -25,8 +25,9 @@ and better collaborate.
 
 ## Topics
 
-1.  [Typing less](01-alias.html)
-2.  [Bisect](02-bisect.html)
+1.  [Getting sync](01-getting-sync.html)
+2.  [Typing less](02-alias.html)
+3.  [Bisect](03-bisect.html)
 <!-- FIXME Write
 
 3.  [Branches](03-branches.html)
