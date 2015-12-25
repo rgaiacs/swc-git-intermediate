@@ -28,11 +28,11 @@ and better collaborate.
 1.  [Getting sync](01-getting-sync.html)
 2.  [Typing less](02-alias.html)
 3.  [Bisect](03-bisect.html)
+3.  [Branches](04-branches.html)
 <!-- FIXME Write
 
-3.  [Branches](03-branches.html)
-4.  [Pull Request](04-pr.html)
-5.  [Rebase](05-rebase.html)
+4.  [Pull Request](05-pr.html)
+5.  [Rebase](06-rebase.html)
 -->
 
 ## Other Resources
