@@ -3,7 +3,16 @@ layout: page
 title: More Version Control with Git
 ---
 
-<!-- FIXME Add introduction -->
+At [Software Carpentry's Novice Git lesson](https://swcarpentry.github.io/git-novice/).
+we learned how to use Git to version control our work
+and make the life of our future self easy.
+
+!["Final".doc from phdcomics.com](fig/phd101212s.png)
+
+At this lesson
+we are going to learn some intermediate features of Git
+that will help us using the history from ours Git repositories
+and better collaborate.
 
 > ## Prerequisites {.prereq}
 >
