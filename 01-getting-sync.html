@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: More Version Control with Git</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      -->
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">More Version Control with Git</h1></a>
+          <h2 class="subtitle">Getting Sync</h2>
+          <p>We are going to use <a href="https://github.com/rgaiacs/swc-git-intermediate-bisect">this Git repository</a> in many parts of this lesson. Before we start the real lesson lets copy that repository so everyone has a copy to work on.</p>
+<p>To copy that repository we are going to use <a href="https://import.github.com/">GitHub Importer</a>. Open https://import.github.com/new?import_url=https://github.com/rgaiacs/swc-git-intermediate-bisect</p>
+<div class="figure">
+<img src="fig/importer-check.png" alt="" />
+
+</div>
+<p>We can now click on “Check URL”.</p>
+<div class="figure">
+<img src="fig/importer-name.png" alt="" />
+
+</div>
+<p>After GitHub verify the repository, we can select the owner of the new copy of the repository and give it a name, for example <code>YYYY-MM-DD-git-sample</code>.</p>
+<div class="figure">
+<img src="fig/importer-begin.png" alt="" />
+
+</div>
+<p>And we can click on “Begin import”.</p>
+<div class="figure">
+<img src="fig/importer-continue.png" alt="" />
+
+</div>
+<p>When GitHub finished copying the repository we can click on “Continue to repository”.</p>
+<div class="figure">
+<img src="fig/git-sample-home.png" alt="" />
+
+</div>
+<p>To finish, we clone that repository to our local machine.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> clone https://github.com/rgaiacs/YYYY-MM-DD-git-sample</code></pre></div>
+<pre class="out"><code>Cloning into &#39;YYYY-MM-DD-git-sample&#39;...
+remote: Counting objects: 33, done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 33 (delta 8), reused 33 (delta 8), pack-reused 0
+Unpacking objects: 100% (33/33), done.
+Checking connectivity... done.</code></pre>
+<p>And we change the current directory to the Git repository that we just cloned:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> YYYY-MM-DD-git-sample</code></pre></div>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        -->
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

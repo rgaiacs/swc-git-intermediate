@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: More Version Control with Git</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      -->
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">More Version Control with Git</h1></a>
+          <h2 class="subtitle">Branches</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Understand branches.</li>
+</ul>
+</div>
+</section>
+<p>We use the name branch to keep the same notation of set theory since the Git history is a <a href="https://en.wikipedia.org/wiki/Tree_%28set_theory%29">tree</a>. <strong>Unfortunately</strong> the term branch could be better understood if we think of thumbtack <strong>that has a name</strong>.</p>
+<div class="figure">
+<img src="fig/thumbtack.jpg" alt="Picture of thumbtack and a piece of paper with the text The task ahead of you is never as great as the Power within you. The picture is called An inspirational message over the sink by Bunny Jager available at https://flic.kr/p/88f39H under CC-BY-SA." />
+<p class="caption">Picture of thumbtack and a piece of paper with the text “The task ahead of you is never as great as the Power within you.” The picture is called “An inspirational message over the sink” by Bunny Jager available at https://flic.kr/p/88f39H under CC-BY-SA.</p>
+</div>
+<p>We can add and remove thumbtack on a tree as you like. We can do this with Git and we will learn how soon.</p>
+<div class="figure">
+<img src="fig/thumbtack-on-tree.jpg" alt="Thumbtack on a branch tree. The picture is called Thumbtack by Christian Bucad available at https://flic.kr/p/7XiB1R under CC-BY-NC-ND." />
+<p class="caption">Thumbtack on a branch tree. The picture is called “Thumbtack” by Christian Bucad available at https://flic.kr/p/7XiB1R under CC-BY-NC-ND.</p>
+</div>
+<p>If our thumbtack is on a leaf of the tree and the tree grows our thumbtack will change its position. Git has this same behaviour.</p>
+<p>We can get the name of the thumbtacks on our Git repository with</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> branch --all</code></pre></div>
+<pre class="out"><code>* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/master</code></pre>
+<p>The star, <code>*</code>, marks the thumbtacks that has the files that we are using now.</p>
+<p>If we want to get <strong>where</strong> the thumbtacks are on our Git tree we can use</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> lga</code></pre></div>
+<pre class="out"><code>* 3f3c1bf (HEAD -&gt; master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   
+| * 51bd45c Add words
+| * ee87332 Add words
+* | 87db327 Add words
+|/  
+* cde9009 Add Python \o/
+* 23c6a6b Add words
+* 6318870 Begin</code></pre>
+<p>So, the thumbtacks <code>master</code>, <code>HEAD</code>, <code>remotes/origin/HEAD</code> and <code>remotes/origin/master</code> are on the commit <code>3f3c1bf</code>.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="head-and-the-gps"><span class="glyphicon glyphicon-pushpin"></span><code>HEAD</code> and the GPS</h2>
+</div>
+<div class="panel-body">
+<p><code>HEAD</code> is a very special thumbtack. It <strong>always</strong> marks our current position on the Git tree. You can think of it as the pin on your GPS app that marks your current location.</p>
+<div class="figure">
+<img src="fig/head-and-gps.jpg" alt="Picture of a GPS. The picture is called Garmin-Asus A10 GPS Android smartphone review by Cheon Fong Liew available at https://flic.kr/p/9bnK7g under CC-BY-SA." />
+<p class="caption">Picture of a GPS. The picture is called “Garmin-Asus A10 GPS Android smartphone review” by Cheon Fong Liew available at https://flic.kr/p/9bnK7g under CC-BY-SA.</p>
+</div>
+</div>
+</aside>
+<p>The file <code>en.dic</code> doesn’t have the word <code>abduction</code>. Lets create a branch, called <code>abduction</code>, where we will add that word.</p>
+<p>To create the branch we use</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> branch abduction</code></pre></div>
+<p>If we list our branches,</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> branch --all</code></pre></div>
+<pre class="out"><code>  abduction
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/master</code></pre>
+<p>we will notice that we still at the <code>master branch</code>. To change our current branch we use</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> checkout abduction</code></pre></div>
+<pre class="out"><code>Switched to branch &#39;abduction&#39;</code></pre>
+<p>After we add the word <code>abduction</code> to <code>en.dic</code> we can create a commit with that change.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -am <span class="st">&quot;Add abduction&quot;</span></code></pre></div>
+<pre class="out"><code>[abduction fb8dde2] Add abduction
+ 1 file changed, 1 insertion(+)</code></pre>
+<p>We can push our branch to GitHub:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin abduction</code></pre></div>
+<pre class="out"><code>Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 293 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git@github.com:rgaiacs/YYYY-MM-DD-git-sample.git
+ * [new branch]      abduction -&gt; abduction</code></pre>
+<p>And we can check our Git tree:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> lga <span class="kw">|</span> <span class="kw">head</span> -n 3</code></pre></div>
+<pre class="out"><code>* fb8dde2 (HEAD -&gt; abduction, origin/abduction) Add abduction
+* 3f3c1bf (origin/master, master) Add words
+* 22dcdb5 Add words</code></pre>
+<p>Notice that the thumbtack <code>HEAD</code> and <code>abduction</code> change their position and a new thumbtack, <code>origin/abduction</code>, is on our tree.</p>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="more-branches"><span class="glyphicon glyphicon-pencil"></span>More branches</h2>
+</div>
+<div class="panel-body">
+<p>Create branches called <code>camp</code>, <code>genomic</code>, <code>voluntary</code> that should start at the commit <code>3f3c1bf</code>. At each branch, add one commit that add the name of the branch into <code>en.dic</code>. After create the three branches, push them to GitHub.</p>
+</div>
+</section>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        -->
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

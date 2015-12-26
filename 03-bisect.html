@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: More Version Control with Git</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      -->
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">More Version Control with Git</h1></a>
+          <h2 class="subtitle">Bisect</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Understand how bisect works.</li>
+</ul>
+</div>
+</section>
+<p>Let explore the repository:</p>
+<pre class="shell"><code>$ ls</code></pre>
+<pre class="output"><code>en.dic</code></pre>
+<pre class="shell"><code>$ head en.dic</code></pre>
+<pre class="output"><code>AA
+AAA
+Aachen
+aah
+Aaliyah
+aardvark
+Aaron
+ab
+AB
+ABA</code></pre>
+<p><code>en.dic</code> is a file with English words. At some point the word <code>Python</code> was added but it doesn’t exist in the last version. <strong>We want to find the commit that remove <code>Python</code></strong> and the fast way to do it is using Git’s <code>bisect</code> command.</p>
+<p>We start using <code>bisect</code> with</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect start</code></pre></div>
+<p>Next we need to a good and bad commit. For that bad commit we can use <code>master</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect bad master</code></pre></div>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="find-the-good-commit"><span class="glyphicon glyphicon-pencil"></span>Find the good commit</h2>
+</div>
+<div class="panel-body">
+<p>Look at the commit messages and find a good commit, i.e. a commit that has the word <code>Python</code>.</p>
+</div>
+</section>
+<p>For the good commit we need to look at the Git history tree.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> log --all --decorate --graph --oneline</code></pre></div>
+<pre class="output"><code>* 3f3c1bf (HEAD -&gt; master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   
+| * 51bd45c Add words
+| * ee87332 Add words
+* | 87db327 Add words
+|/  
+* cde9009 Add Python \o/
+* 23c6a6b Add words
+* 6318870 Begin</code></pre>
+<p>So we can use <code>cde9009</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect good cde9009</code></pre></div>
+<pre class="output"><code>Bisecting: 3 revisions left to test after this (roughly 2 steps)
+[ee405062c7604cfd7f5b6be865794099043c5d54] Add words</code></pre>
+<p>When we provide the good and bad commit, Git will checkout to the commit at the middle of the history between the two commits that we inform. We need to verify if the current commit is a good or bad commit and give this information to Git.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> Python en.dic</code></pre></div>
+<p>Since it is a bad commit we run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect bad</code></pre></div>
+<pre class="output"><code>Bisecting: 1 revision left to test after this (roughly 1 step)
+[51bd45c81c6bb33d759337051e51a1b716389ab2] Add words</code></pre>
+<p>And we repeat the same step until Git provide us with the first bad commit.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> Python en.dic</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect bad</code></pre></div>
+<pre class="output"><code>Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[ee87332cbab454d7a97b04f9105eaa7e0767d527] Add words</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> Python en.dic</code></pre></div>
+<pre class="output"><code>Python</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> bisect good</code></pre></div>
+<pre class="output"><code>51bd45c81c6bb33d759337051e51a1b716389ab2 is the first bad commit
+commit 51bd45c81c6bb33d759337051e51a1b716389ab2
+Author: Raniere Silva &lt;raniere@rgaiacs.com&gt;
+Date:   Sun Dec 20 20:45:27 2015 -0200
+
+    Add words
+
+:100644 100644 1489061c7a6a606ef8ca16e7004f008c1c93a1cb 4996cc818c834f70271c898a40146e8e3a644084 M        en.dic</code></pre>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        -->
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

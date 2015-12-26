@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: More Version Control with Git</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      -->
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">More Version Control with Git</h1></a>
+          <h2 class="subtitle">Typing less</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Create alias</li>
+</ul>
+</div>
+</section>
+<p>When we start using Git a lot we also get tired of type long commands like <code>git log --all --decorate --graph --oneline</code>. Git allows us to create our own commands, called <code>alias</code>, that will be transcript to full Git commands so we can type less. For example, we can create a command called <code>lga</code> to be transcript into <code>log --all --decorate --graph --oneline</code> using</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --global alias.lga <span class="st">&#39;log --all --decorate --graph --oneline&#39;</span></code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="config"><span class="glyphicon glyphicon-pushpin"></span>Config</h2>
+</div>
+<div class="panel-body">
+<p>We used <code>git config</code> at <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry’s Novice Git lesson</a>. to set up <code>user.name</code>, <code>user.email</code> and <code>core.editor</code>.</p>
+</div>
+</aside>
+<p>After we create the <code>lga</code> command we can use it as any other Git command, i.e. we just need to run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> lga</code></pre></div>
+<pre class="out"><code>* 3f3c1bf (HEAD -&gt; master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   
+| * 51bd45c Add words
+| * ee87332 Add words
+* | 87db327 Add words
+|/  
+* cde9009 Add Python \o/
+* 23c6a6b Add words
+* 6318870 Begin</code></pre>
+<p>And we can pass arguments to <code>lga</code>. For example,</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> lga -5</code></pre></div>
+<pre class="out"><code>* 3f3c1bf (HEAD -&gt; master, origin/master, origin/HEAD) Add words
+* 22dcdb5 Add words
+*   92808ea Add words
+|\  
+| * 5121eef Add words
+* |   ee40506 Add words
+|\ \  
+| |/  
+|/|   </code></pre>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="more-alias"><span class="glyphicon glyphicon-pencil"></span>More Alias</h2>
+</div>
+<div class="panel-body">
+<p>Create alias as describe in the following table.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Alias</th>
+<th align="left">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>a</code></td>
+<td align="left"><code>add</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>cam</code></td>
+<td align="left"><code>commit --all --message</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>i</code></td>
+<td align="left"><code>init</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>p</code></td>
+<td align="left"><code>push --set-upstream</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="dotfiles"><span class="glyphicon glyphicon-pencil"></span>Dotfiles</h2>
+</div>
+<div class="panel-body">
+<p>Now let share our <code>~/.gitconfig</code> on GitHub. When possible, use the alias created previously.</p>
+<ol style="list-style-type: decimal">
+<li>Create a directory called <code>my-dotfiles</code>. You can create this directory anywhere in your filesystem but for sake of consistense we are going to use <code>~/swc-git-intermediate/my-dotfiles</code>.</li>
+<li>Initiate a Git repository on <code>my-dotfiles</code>.</li>
+<li>Create <code>README.md</code>.</li>
+<li>Create a commit with <code>README.md</code>.</li>
+<li>Copy <code>~/.gitconfig</code> into <code>my-dotfiles</code>.</li>
+<li>Create a commit with <code>my-dotfiles</code>.</li>
+<li>Push the changes to GitHub.</li>
+</ol>
+</div>
+</section>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <!-- Commenting banner since this isn't a official lesson of Software Carpentry
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        -->
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
