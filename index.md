@@ -30,9 +30,8 @@ and better collaborate.
 3.  [Bisect](03-bisect.html)
 4.  [Branches](04-branches.html)
 5.  [Pull Request](05-pr.html)
-<!-- FIXME Write
-
 6.  [Rebase](06-rebase.html)
+<!-- FIXME Write
 -->
 
 ## Other Resources
