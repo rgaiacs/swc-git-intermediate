@@ -40,14 +40,14 @@ and the fast way to do it is using Git's `bisect` command.
 
 We start using `bisect` with
 
-~~~ {.git}
+~~~ {.bash}
 $ git bisect start
 ~~~
 
 Next we need to a good and bad commit.
 For that bad commit we can use `master`.
 
-~~~ {.git}
+~~~ {.bash}
 $ git bisect bad master
 ~~~
 
@@ -58,7 +58,7 @@ $ git bisect bad master
 
 For the good commit we need to look at the Git history tree.
 
-~~~ {.git}
+~~~ {.bash}
 $ git log --all --decorate --graph --oneline
 ~~~
 ~~~ {.output}
@@ -82,7 +82,7 @@ $ git log --all --decorate --graph --oneline
 
 So we can use `cde9009`.
 
-~~~ {.git}
+~~~ {.bash}
 $ git bisect good cde9009
 ~~~
 ~~~ {.output}
@@ -102,7 +102,7 @@ $ grep Python en.dic
 
 Since it is a bad commit we run
 
-~~~ {.git}
+~~~ {.bash}
 $ git bisect bad
 ~~~
 ~~~ {.output}
@@ -115,7 +115,7 @@ And we repeat the same step until Git provide us with the first bad commit.
 ~~~ {.bash}
 $ grep Python en.dic
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git bisect bad
 ~~~
 ~~~ {.output}
@@ -128,7 +128,7 @@ $ grep Python en.dic
 ~~~ {.output}
 Python
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git bisect good
 ~~~
 ~~~ {.output}

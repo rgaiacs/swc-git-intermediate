@@ -37,7 +37,7 @@ we can click on "Continue to repository".
 To finish,
 we clone that repository to our local machine.
 
-~~~ {.git}
+~~~ {.bash}
 $ git clone https://github.com/rgaiacs/YYYY-MM-DD-git-sample
 ~~~
 ~~~ {.out}

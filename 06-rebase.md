@@ -27,7 +27,7 @@ so we need to resolve the conflict locally.
 Before we start resolving the conflict we should update our local copy of the
 Git repository.
 
-~~~ {.git}
+~~~ {.bash}
 $ git fetch --all
 ~~~
 ~~~ {.out}
@@ -38,7 +38,7 @@ Unpacking objects: 100% (1/1), done.
 From github.com:rgaiacs/YYYY-MM-DD-git-sample
    3f3c1bf..2e52159  master     -> origin/master
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git lga
 ~~~
 ~~~ {.out}
@@ -73,13 +73,13 @@ $ git lga
 Our branch `master` isn't at the same commit of our commit `origin/master`.
 We can fix that with
 
-~~~ {.git}
+~~~ {.bash}
 $ git checkout master
 ~~~
 ~~~ {.out}
 Switched to branch 'master'
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git merge origin/master
 ~~~
 ~~~ {.out}
@@ -99,7 +99,7 @@ on [Software Carpentry's Version Control with Git](https://swcarpentry.github.io
 > If we need to resolve that conflict using merge
 > we can
 >
-> ~~~ {.git}
+> ~~~ {.bash}
 > $ git merge genomic
 > ~~~
 > ~~~ {.out}
@@ -111,7 +111,7 @@ on [Software Carpentry's Version Control with Git](https://swcarpentry.github.io
 > Edit `en.dic` with our favorite text editor.
 > And
 >
-> ~~~ {.git}
+> ~~~ {.bash}
 > $ git commit -am 'Merge genomic and master'
 > ~~~
 > ~~~ {.out}
@@ -120,7 +120,7 @@ on [Software Carpentry's Version Control with Git](https://swcarpentry.github.io
 >
 > We end with a Git tree like
 >
-> ~~~ {.git}
+> ~~~ {.bash}
 > $ git lga
 > ~~~
 > ~~~ {.out}
@@ -162,7 +162,7 @@ and the Git tree will be easier to understand by humans.
 We start moving to the branch that we will use as scion,
 in other words, the branch that we want to cut and insert in another point.
 
-~~~ {.git}
+~~~ {.bash}
 $ git checkout genomic
 ~~~
 ~~~ {.out}
@@ -171,7 +171,7 @@ Switched to branch 'genomic'
 
 To do the graft we run
 
-~~~ {.git}
+~~~ {.bash}
 $ git rebase master
 ~~~
 ~~~ {.out}
@@ -194,10 +194,10 @@ To check out the original branch and stop rebasing, run "git rebase --abort".
 To solve the conflict we edit `en.dic` with our favorite text editor.
 After that we run
 
-~~~ {.git}
+~~~ {.bash}
 $ git add en.dic
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git rebase continue
 ~~~
 ~~~ {.out}
@@ -206,7 +206,7 @@ Applying: Add genomic
 
 We can check the Git history:
 
-~~~ {.git}
+~~~ {.bash}
 $ git lga
 ~~~
 ~~~ {.out}
@@ -242,7 +242,7 @@ $ git lga
 If the `genomic` branch is in the correct place we can push it to GitHub.
 **We will need to force the push!**
 
-~~~ {.git}
+~~~ {.bash}
 $ git push -f origin genomic
 ~~~
 ~~~ {.out}
@@ -266,13 +266,13 @@ Let merge that pull request.
 
 And get the merge into our local copy.
 
-~~~ {.git}
+~~~ {.bash}
 $ git checkout master
 ~~~
 ~~~ {.out}
 Switched to branch 'master'
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git pull origin master
 ~~~
 ~~~ {.out}
@@ -285,7 +285,7 @@ From github.com:rgaiacs/YYYY-MM-DD-git-sample
 Updating 2e52159..d4d04ce
 Fast-forward
 ~~~
-~~~ {.git}
+~~~ {.bash}
 $ git lga
 ~~~
 ~~~ {.out}

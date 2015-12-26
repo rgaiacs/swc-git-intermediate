@@ -26,7 +26,7 @@ Git has this same behaviour.
 
 We can get the name of the thumbtacks on our Git repository with
 
-~~~ {.git}
+~~~ {.bash}
 $ git branch --all
 ~~~
 ~~~ {.out}
@@ -39,7 +39,7 @@ The star, `*`, marks the thumbtacks that has the files that we are using now.
 
 If we want to get **where** the thumbtacks are on our Git tree we can use
 
-~~~ {.git}
+~~~ {.bash}
 $ git lga
 ~~~
 ~~~ {.out}
@@ -86,13 +86,13 @@ where we will add that word.
 
 To create the branch we use
 
-~~~ {.git}
+~~~ {.bash}
 $ git branch abduction
 ~~~
 
 If we list our branches,
 
-~~~ {.git}
+~~~ {.bash}
 $ git branch --all
 ~~~
 ~~~ {.out}
@@ -105,7 +105,7 @@ $ git branch --all
 we will notice that we still at the `master branch`.
 To change our current branch we use
 
-~~~ {.git}
+~~~ {.bash}
 $ git checkout abduction
 ~~~
 ~~~ {.out}
@@ -115,7 +115,7 @@ Switched to branch 'abduction'
 After we add the word `abduction` to `en.dic`
 we can create a commit with that change.
 
-~~~ {.git}
+~~~ {.bash}
 $ git commit -am "Add abduction"
 ~~~
 ~~~ {.out}
@@ -125,7 +125,7 @@ $ git commit -am "Add abduction"
 
 We can push our branch to GitHub:
 
-~~~ {.git}
+~~~ {.bash}
 $ git push origin abduction
 ~~~
 ~~~ {.out}
@@ -140,7 +140,7 @@ To git@github.com:rgaiacs/YYYY-MM-DD-git-sample.git
 
 And we can check our Git tree:
 
-~~~ {.git}
+~~~ {.bash}
 $ git lga | head -n 3
 ~~~
 ~~~ {.out}

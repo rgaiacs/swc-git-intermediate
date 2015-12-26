@@ -19,7 +19,7 @@ we can create a command called `lga` to be transcript into
 `log --all --decorate --graph --oneline`
 using
 
-~~~ {.git}
+~~~ {.bash}
 $ git config --global alias.lga 'log --all --decorate --graph --oneline'
 ~~~
 
@@ -32,7 +32,7 @@ $ git config --global alias.lga 'log --all --decorate --graph --oneline'
 After we create the `lga` command we can use it as any other Git command, i.e.
 we just need to run
 
-~~~ {.git}
+~~~ {.bash}
 $ git lga
 ~~~
 ~~~ {.out}
@@ -56,7 +56,7 @@ $ git lga
 
 And we can pass arguments to `lga`. For example,
 
-~~~ {.git}
+~~~ {.bash}
 $ git lga -5
 ~~~
 ~~~ {.out}
