@@ -3,7 +3,7 @@ layout: page
 title: More Version Control with Git
 ---
 
-At [Software Carpentry's Novice Git lesson](https://swcarpentry.github.io/git-novice/).
+At [Software Carpentry's Novice Git lesson](https://swcarpentry.github.io/git-novice/),
 we learned how to use Git to version control our work
 and make the life of our future self easy.
 

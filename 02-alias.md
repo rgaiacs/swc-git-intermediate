@@ -27,7 +27,7 @@ $ git config --global alias.lga 'log --all --decorate --graph --oneline'
 >
 > We used `git config`
 > at [Software Carpentry's Novice Git lesson](https://swcarpentry.github.io/git-novice/).
-> to set up `user.name`, `user.email` and `core.editor`.
+> to set up `user.name`, `user.email`, and `core.editor`.
 
 After we create the `lga` command we can use it as any other Git command, i.e.
 we just need to run

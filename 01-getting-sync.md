@@ -11,7 +11,7 @@ Before we start the real lesson lets copy that repository
 so everyone has a copy to work on.
 
 To copy that repository we are going to use [GitHub Importer](https://import.github.com/).
-Open https://import.github.com/new?import_url=https://github.com/rgaiacs/swc-git-intermediate-bisect
+Open [https://import.github.com/new?import_url=https://github.com/rgaiacs/swc-git-intermediate-bisect](https://import.github.com/new?import_url=https://github.com/rgaiacs/swc-git-intermediate-bisect).
 
 ![](fig/importer-check.png)
 
