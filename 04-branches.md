@@ -152,12 +152,46 @@ $ git lga | head -n 3
 Notice that the thumbtack `HEAD` and `abduction` change their position
 and a new thumbtack, `origin/abduction`, is on our tree.
 
+> ## Detached `HEAD` State
+>
+> Consider the following commands:
+>
+> ~~~ {.bash}
+> $ git checkout 3f3c1bf
+> ~~~
+> ~~~ {.out}
+> Note: checking out '3f3c1bf'.
+>
+> You are in 'detached HEAD' state. You can look around, make experimental
+> changes and commit them, and you can discard any commits you make in this
+> state without impacting any branches by performing another checkout.
+>
+> If you want to create a new branch to retain commits you create, you may
+> do so (now or later) by using -b with the checkout command again. Example:
+>
+>   git checkout -b <new-branch-name>
+>
+> HEAD is now at 3f3c1bf... Add words
+> ~~~
+> ~~~ {.bash}
+> $ echo camp >> en.dic
+> ~~~
+> ~~~ {.bash}
+> $ git commit -am 'Add camp'
+> ~~~
+> ~~~ {.out}
+> [detached HEAD 8413095] Add camp
+>  1 file changed, 1 insertion(+)
+> ~~~
+>
+> Explain what happened. After that send the new commit to GitHub in a branch called `camp`.
+
 > ## More branches {.challenge}
 >
 > Create branches called
-> `camp`, `genomic`, `voluntary`
+> `genomic` and `voluntary`
 > that should start at the commit `3f3c1bf`.
 > At each branch,
 > add one commit that add the name of the branch into `en.dic`.
-> After create the three branches,
+> After create the two branches,
 > push them to GitHub.
