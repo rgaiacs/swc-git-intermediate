@@ -7,7 +7,7 @@ DST_RMD = $(patsubst %.Rmd,%.md,$(SRC_RMD))
 
 # All Markdown files (hand-written and generated).
 SRC_MD = index.md \
-	 $(wildcard ??-*.md) \
+	 $(sort $(wildcard ??-*.md)) \
 	 $(DST_RMD) \
 	 reference.md \
 	 discussion.md \
