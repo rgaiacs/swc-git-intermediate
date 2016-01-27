@@ -38,6 +38,14 @@ but it doesn't exist in the last version.
 **We want to find the commit that remove `Python`**
 and the fast way to do it is using Git's `bisect` command.
 
+> ## Bisection method {.callout}
+>
+> Git's `bisect` command is based on the [bisection method](https://en.wikipedia.org/wiki/Bisection_method)
+> that each iteration has a search space with half the size of the
+> search space of the previous iteration.
+> Because of this, for a large initial search space you only need to check a
+> small set of commits to find the commit that introduce a bug.
+
 We start using `bisect` with
 
 ~~~ {.bash}
