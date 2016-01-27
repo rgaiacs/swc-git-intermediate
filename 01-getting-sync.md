@@ -1,7 +1,7 @@
 ---
 layout: page
 title: More Version Control with Git
-subtitle: Getting Sync
+subtitle: Getting Synced
 minutes: 10
 ---
 
