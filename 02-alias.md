@@ -87,13 +87,19 @@ $ git lga -5
 > Now let share our `~/.gitconfig` on GitHub.
 > When possible, use the alias created previously.
 >
-> 1.    Create a directory called `my-dotfiles`.
+> 1.    Create a directory called `dotfiles`.
 >       You can create this directory anywhere in your filesystem
 >       but for sake of consistense we are going to use
->       `~/swc-git-intermediate/my-dotfiles`.
-> 2.    Initiate a Git repository on `my-dotfiles`.
+>       `~/swc-git-intermediate/dotfiles`.
+> 2.    Initiate a Git repository on `dotfiles`.
 > 3.    Create `README.md`.
 > 4.    Create a commit with `README.md`.
-> 5.    Copy `~/.gitconfig` into `my-dotfiles`.
-> 6.    Create a commit with `my-dotfiles`.
+> 5.    Copy `~/.gitconfig` into `dotfiles`.
+> 6.    Create a commit with `dotfiles`.
 > 7.    Push the changes to GitHub.
+>
+>       **You need to create a repository on GitHub for it.**
+>
+> If you finished this challenge before your classmates
+> go to https://github.com/search?utf8=%E2%9C%93&q=dotfiles
+> and look at the `dotfiles` that some people share on GitHub.
