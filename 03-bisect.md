@@ -152,3 +152,83 @@ Date:   Sun Dec 20 20:45:27 2015 -0200
 
 From the last output we have that the first bad commit is `51bd45c`.
 We had **9 commits** in our search space and we only tested **3 commits**.
+
+> ## Bisection animation {.callout}
+>
+> The following animation represent the previous steps that we did.
+> <span style="color:red">Red</span> means a bad commit,
+> <span style="color:red; font-weight:bold">bold red</span> means **the first bad commit**,
+> <span style="color:green">green</span> means a good commit,
+> and <span style="color:blue">blue</span> means the commit that we are inspecting at the moment.
+>
+> <pre>
+> * <span style="color:red">3f3c1bf</span>
+> * 22dcdb5
+> *   92808ea
+> |\  
+> | * 5121eef
+> * |   <span id="bisect-1">ee40506</span>
+> |\ \  
+> | |/  
+> |/|   
+> | * <span id="bisect-2">51bd45c</span>
+> | * <span id="bisect-3">ee87332</span>
+> * | 87db327
+> |/  
+> * <span style="color:green">cde9009</span>
+> * 23c6a6b
+> * 6318870
+> </pre>
+
+<script>
+var timeStep = 1000;
+
+function iteration0() {
+var nodeList = [1, 2, 3];
+var node;
+for (i of nodeList) {
+node = document.getElementById("bisect-" + i);
+node.style.color = "";
+node.style.fontWeight = "normal";
+}
+}
+
+function iteration1() {
+node = document.getElementById("bisect-1");
+node.style.color = "blue";
+}
+
+function iteration2() {
+node = document.getElementById("bisect-1");
+node.style.color = "red";
+
+node = document.getElementById("bisect-2");
+node.style.color = "blue";
+}
+
+function iteration3() {
+node = document.getElementById("bisect-2");
+node.style.color = "red";
+
+node = document.getElementById("bisect-3");
+node.style.color = "blue";
+}
+
+function iteration4() {
+node = document.getElementById("bisect-3");
+node.style.color = "green";
+
+node = document.getElementById("bisect-2");
+node.style.fontWeight = "bold";
+}
+
+function bisectLoop() {
+iteration0();
+setTimeout(iteration1, timeStep * 1);
+setTimeout(iteration2, timeStep * 2);
+setTimeout(iteration3, timeStep * 3);
+setTimeout(iteration4, timeStep * 4);
+}
+
+window.setInterval(bisectLoop, timeStep * 5);
+</script>
