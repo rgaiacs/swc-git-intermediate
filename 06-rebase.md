@@ -328,4 +328,4 @@ $ git lga
 > merge the pull request
 > and get the merged commit.
 >
-> **Tip:** If you do the steps in parallel because you will get a conflict.
+> **Tip:** If you do the steps in parallel you will get a conflict.
