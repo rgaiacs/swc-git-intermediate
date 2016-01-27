@@ -1,7 +1,7 @@
 ---
 layout: page
 title: More Version Control with Git
-subtitle: Typing less
+subtitle: Typing less (using git alias)
 minutes: 10
 ---
 > ## Learning Objectives {.objectives}
