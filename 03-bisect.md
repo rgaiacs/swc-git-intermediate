@@ -149,3 +149,6 @@ Date:   Sun Dec 20 20:45:27 2015 -0200
 
 :100644 100644 1489061c7a6a606ef8ca16e7004f008c1c93a1cb 4996cc818c834f70271c898a40146e8e3a644084 M        en.dic
 ~~~
+
+From the last output we have that the first bad commit is `51bd45c`.
+We had **9 commits** in our search space and we only tested **3 commits**.
