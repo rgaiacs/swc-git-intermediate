@@ -152,7 +152,7 @@ $ git lga | head -n 3
 Notice that the thumbtack `HEAD` and `abduction` change their position
 and a new thumbtack, `origin/abduction`, is on our tree.
 
-> ## Detached `HEAD` State
+> ## Detached `HEAD` State  {.callout}
 >
 > Consider the following commands:
 >
