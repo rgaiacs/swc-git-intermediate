@@ -88,7 +88,7 @@ $ git lga -5
 > When possible, use the alias created previously.
 >
 > 1.    Create a directory called `dotfiles`.
->       You can create this directory anywhere in your filesystem
+>       We can create this directory anywhere in our filesystem
 >       but for sake of consistense we are going to use
 >       `~/swc-git-intermediate/dotfiles`.
 > 2.    Initiate a Git repository on `dotfiles`.
@@ -98,8 +98,7 @@ $ git lga -5
 > 6.    Create a commit with `dotfiles`.
 > 7.    Push the changes to GitHub.
 >
->       **You need to create a repository on GitHub for it.**
+>       **We need to create a repository on GitHub for it.**
 >
-> If you finished this challenge before your classmates
-> go to https://github.com/search?utf8=%E2%9C%93&q=dotfiles
+> Now we can go to https://github.com/search?utf8=%E2%9C%93&q=dotfiles
 > and look at the `dotfiles` that some people share on GitHub.

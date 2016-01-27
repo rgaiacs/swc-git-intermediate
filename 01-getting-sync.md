@@ -51,7 +51,7 @@ Checking connectivity... done.
 
 > ## SSH {.callout}
 >
-> If you have SSH public key configure on your machine you can use
+> If we have SSH public key configure on our machine we can use
 >
 > ~~~ {.bash}
 > $ git clone git@github.com:rgaiacs/YYYY-MM-DD-git-sample

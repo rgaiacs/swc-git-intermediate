@@ -156,7 +156,7 @@ Another way that we can resolve the conflict is using [graft](https://en.wikiped
 ![Mango grafiting. Picture "Bolivia_mango5" by CIAT available at https://flic.kr/p/7Eedqr under CC-BY-SA](fig/graft.png)
 
 The advantages of use graft is that
-it allows you to keep using the same pull request on GitHub for discussion
+it allows us to keep using the same pull request on GitHub for discussion
 and the Git tree will be easier to understand by humans.
 
 We start moving to the branch that we will use as scion,

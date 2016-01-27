@@ -15,7 +15,7 @@ if we think of thumbtack **that has a name**.
 
 ![Picture of thumbtack and a piece of paper with the text "The task ahead of you is never as great as the Power within you." The picture is called "An inspirational message over the sink" by Bunny Jager available at https://flic.kr/p/88f39H under CC-BY-SA.](fig/thumbtack.jpg)
 
-We can add and remove thumbtack on a tree as you like.
+We can add and remove thumbtack on a tree as we like.
 We can do this with Git and we will learn how soon.
 
 ![Thumbtack on a branch tree. The picture is called "Thumbtack" by Christian Bucad available at https://flic.kr/p/7XiB1R under CC-BY-NC-ND.](fig/thumbtack-on-tree.jpg)
@@ -74,8 +74,8 @@ are on the commit `3f3c1bf`.
 > `HEAD` is a very special thumbtack.
 > It **always** marks our current position
 > on the Git tree.
-> You can think of it as the pin on your GPS app
-> that marks your current location.
+> We can think of it as the pin on our GPS app
+> that marks our current location.
 >
 > ![Picture of a GPS. The picture is called "Garmin-Asus A10 GPS Android smartphone review" by Cheon Fong Liew available at https://flic.kr/p/9bnK7g under CC-BY-SA.](fig/head-and-gps.jpg)
 
