@@ -49,6 +49,22 @@ Unpacking objects: 100% (33/33), done.
 Checking connectivity... done.
 ~~~
 
+> ## SSH {.callout}
+>
+> If you have SSH public key configure on your machine you can use
+>
+> ~~~ {.bash}
+> $ git clone git@github.com:rgaiacs/YYYY-MM-DD-git-sample
+> ~~~
+> ~~~ {.out}
+> Cloning into 'YYYY-MM-DD-git-sample'...
+> remote: Counting objects: 33, done.
+> remote: Compressing objects: 100% (14/14), done.
+> remote: Total 33 (delta 8), reused 33 (delta 8), pack-reused 0
+> Unpacking objects: 100% (33/33), done.
+> Checking connectivity... done.
+> ~~~
+
 And we change the current directory to the Git repository that we just cloned:
 
 ~~~ {.bash}
